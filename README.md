@@ -50,6 +50,7 @@ Update /etc/cloud/cloud.cfg
 Change the preserve_hostname value to true.
 
 Edit sudo vi /etc/netplan/50-cloud-init.yaml
+
 `
 network:
   ethernets:
@@ -111,8 +112,10 @@ curl -sfL https://get.k3s.io | K3S_URL=https://myserver:6443 K3S_TOKEN=mynodetok
 Back on primary node
 
 `
+
 mkdir ~/.k3s
 sudo cp /etc/rancher/k3s/k3s.yaml ~/.k3s/config
 sudo chown $USER.$USER ~/.k3s/config
 export KUBECONFIG=$HOME/.k3s/config
+
 `
