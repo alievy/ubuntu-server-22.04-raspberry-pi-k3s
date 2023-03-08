@@ -22,7 +22,10 @@ sudo systemctl reboot
 ## Fix cgroup for raspberry pi
 
 Add this to the beginning of /boot/firmware/cmdline.txt:
+
+```
 cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory
+```
 
 ```
 sudo vi /boot/firmware/cmdline.txt
@@ -40,18 +43,16 @@ Update hostname
 sudo hostnamectl set-hostname worker1
 ```
 
-Edit hosts and add following:
+Edit /etc/hosts and add following:
 
 ```
+$ sudo vi /etc/hosts
+
+
 127.0.0.1       worker1
 192.168.10.21   master
 192.168.10.22   worker1
 ```
-
-```
-sudo vi /etc/hosts
-```
-
 
 ## Set static ip
 
