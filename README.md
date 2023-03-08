@@ -6,7 +6,7 @@ How to install ubuntu server 22.04 on raspberry pi and k3s agent.
 
 With the raspberry pi installed with ubuntu 22.04, run update and upgrade the system
 
-h```
+```bash
 sudo apt update && 
 apt install linux-modules-extra-raspi -y &&
 apt upgrade -y &&
