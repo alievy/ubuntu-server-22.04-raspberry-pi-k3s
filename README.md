@@ -7,10 +7,14 @@ How to install ubuntu server 22.04 on raspberry pi and k3s agent.
 With the raspberry pi installed with ubuntu 22.04, run update and upgrade the system
 
 `
-sudo apt update \
-sudo apt install linux-modules-extra-raspi \
-sudo apt -y upgrade \
-sudo apt dist-upgrade \
+sudo apt update && 
+apt install linux-modules-extra-raspi -y &&
+apt upgrade -y &&
+apt dist-upgrade -y
+`
+
+Reboot system when finished
+`
 sudo systemctl reboot
 `
 
@@ -113,10 +117,8 @@ curl -sfL https://get.k3s.io | K3S_URL=https://myserver:6443 K3S_TOKEN=mynodetok
 Back on primary node
 
 `
-
 mkdir ~/.k3s
 sudo cp /etc/rancher/k3s/k3s.yaml ~/.k3s/config
 sudo chown $USER.$USER ~/.k3s/config
 export KUBECONFIG=$HOME/.k3s/config
-
 `
