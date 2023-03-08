@@ -7,10 +7,10 @@ How to install ubuntu server 22.04 on raspberry pi and k3s agent.
 With the raspberry pi installed with ubuntu 22.04, run update and upgrade the system
 
 `
-sudo apt update
-sudo apt install linux-modules-extra-raspi
-sudo apt -y upgrade
-sudo apt dist-upgrade
+sudo apt update \
+sudo apt install linux-modules-extra-raspi \
+sudo apt -y upgrade \
+sudo apt dist-upgrade \
 sudo systemctl reboot
 `
 
@@ -53,16 +53,17 @@ Edit sudo vi /etc/netplan/50-cloud-init.yaml
 
 `
 network:
-  ethernets:
-    eno1:
-      addresses:
-        - 192.168.10.21/24
-      nameservers:
-        addresses: [8.8.4.4, 8.8.8.8]
-      routes:
-        - to: default
-          via: 192.168.10.1
-      dhcp4: n
+    ethernets:
+        eno1:
+            addresses:
+                - 192.168.10.21/24
+            nameservers:
+                addresses: [8.8.4.4, 8.8.8.8]            
+            routes:
+                - to: default
+                via: 192.168.10.1
+                dhcp4: false
+    version: 2
 `
 
 When done run sudo netplan apply and reboot device
